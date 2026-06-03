@@ -1,0 +1,7 @@
+condition,method,good_matches,ransac_inliers,matching_score,mean_reprojection_error_px,joint_confidence_score,best_scale
+low_light,SuperPoint + SuperGlue + RANSAC,666,620,0.9309309309309309,1.2917391061782837,270.53690288242075,
+motion_blur,SuperPoint + SuperGlue + RANSAC,548,180,0.3284671532846715,1.723694920539856,66.086696657026,
+defocus_blur,SuperPoint + SuperGlue + RANSAC,639,530,0.8294209702660407,1.4886868000030518,212.96372046468446,
+low_light,Multi-scale SuperPoint + SuperGlue + RANSAC,666,620,0.9309309309309309,1.2917391061782837,270.53690288242075,1.0
+motion_blur,Multi-scale SuperPoint + SuperGlue + RANSAC,546,198,0.3626373626373626,1.6425320307413738,74.92813623320593,1.5
+defocus_blur,Multi-scale SuperPoint + SuperGlue + RANSAC,639,530,0.8294209702660407,1.4886868000030518,212.96372046468446,1.0

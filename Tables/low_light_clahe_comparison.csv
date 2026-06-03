@@ -1,0 +1,3 @@
+condition,method,keypoints_img2,good_matches,ransac_inliers,mean_reprojection_error_px,joint_confidence_score
+low_light,SIFT + RANSAC,2307,1327,1179,0.60557621717453,734.3158097314042
+low_light,CLAHE + SIFT + RANSAC,3957,1583,1448,0.698696494102478,852.418313116649

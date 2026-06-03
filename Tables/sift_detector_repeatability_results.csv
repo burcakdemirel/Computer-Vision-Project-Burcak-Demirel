@@ -1,0 +1,4 @@
+condition,method,keypoints_img1,keypoints_img2,valid_projected_keypoints,repeatable_keypoints,repeatability
+low_light,SIFT Detector,4356,2308,4120,1560,0.3786407766990291
+motion_blur,SIFT Detector,4357,854,4121,428,0.10385828682358651
+defocus_blur,SIFT Detector,4356,860,4120,560,0.13592233009708737

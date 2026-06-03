@@ -1,0 +1,4 @@
+condition,method,ratio_threshold,ransac_threshold_px,keypoints_img2,good_matches,ransac_inliers,matching_score,mean_reprojection_error_px,joint_confidence_score
+defocus_blur,SIFT + RANSAC,0.8,5.0,859,542,369,0.6808118081180812,1.4064302444458008,153.3391632072761
+low_light,SIFT + RANSAC,0.8,3.0,2308,1442,1216,0.8432732316227461,0.5939409136772156,762.8890064655487
+motion_blur,SIFT + RANSAC,0.8,5.0,854,464,274,0.5905172413793104,2.045759916305542,89.96112875907751

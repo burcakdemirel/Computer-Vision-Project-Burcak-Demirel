@@ -1,0 +1,4 @@
+condition,method,keypoints_img2,good_matches,ransac_inliers,mean_reprojection_error_px,joint_confidence_score
+defocus_blur,SIFT + RANSAC,859,429,310,1.2175493240356445,139.7939593225558
+defocus_blur,CLAHE + SIFT + RANSAC,1304,404,302,1.23411226272583,135.17673441867743
+defocus_blur,CLAHE + Multi-scale SIFT + RANSAC,1350,418,271,1.2765530347824097,119.03961641108961

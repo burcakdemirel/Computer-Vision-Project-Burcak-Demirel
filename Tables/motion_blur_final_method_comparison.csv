@@ -1,0 +1,4 @@
+condition,method,keypoints_img2,good_matches,ransac_inliers,mean_reprojection_error_px,joint_confidence_score
+motion_blur,SIFT + RANSAC,854,353,192,1.487930178642273,77.17258371968433
+motion_blur,CLAHE + SIFT + RANSAC,1420,346,197,1.5408854484558105,77.53202731737636
+motion_blur,CLAHE + Multi-scale SIFT + RANSAC,1521,347,168,1.4869520664215088,67.55256857110892

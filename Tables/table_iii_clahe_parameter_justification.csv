@@ -1,0 +1,4 @@
+condition,best_clahe_clip_limit,best_clahe_tile_grid,joint_confidence_score,clahe_helpful
+low_light,3.0,8x8,865.55,YES
+motion_blur,2.0,8x8,77.53,MARGINAL
+defocus_blur,1.0,8x8,147.64,MARGINAL

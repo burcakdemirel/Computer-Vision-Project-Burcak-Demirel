@@ -1,0 +1,4 @@
+sequence,image_pair,condition,method,best_scale,keypoints_img1,keypoints_img2,good_matches,ransac_inliers,matching_score,mean_reprojection_error_px,joint_confidence_score
+v_weapons,1-2,low_light,Multi-scale SuperPoint + SuperGlue + RANSAC,1.0,1024,1024,666,620,0.9309309309309309,1.2917391061782837,270.53690288242075
+v_weapons,1-2,motion_blur,Multi-scale SuperPoint + SuperGlue + RANSAC,1.5,1024,1024,546,198,0.3626373626373626,1.6425320307413738,74.92813623320593
+v_weapons,1-2,defocus_blur,Multi-scale SuperPoint + SuperGlue + RANSAC,1.0,1024,1024,639,530,0.8294209702660407,1.4886868000030518,212.96372046468446

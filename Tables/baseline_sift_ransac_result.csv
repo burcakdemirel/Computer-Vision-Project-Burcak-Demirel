@@ -1,0 +1,2 @@
+sequence,image_pair,method,ratio_threshold,ransac_threshold_px,keypoints_img1,keypoints_img2,good_matches,ransac_inliers,mean_reprojection_error_px,joint_confidence_score
+i_ajuntament,1-2,SIFT + RANSAC,0.75,3.0,840,780,348,284,0.6718658804893494,169.8700854621629

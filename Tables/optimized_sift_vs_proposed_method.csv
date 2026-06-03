@@ -1,0 +1,7 @@
+condition,method,ratio_threshold,ransac_threshold_px,best_scale,clahe_clip_limit,clahe_tile_grid,good_matches,ransac_inliers,matching_score,mean_reprojection_error_px,joint_confidence_score
+defocus_blur,Optimized SIFT + RANSAC,0.8,5.0,,,,542,369,0.6808118081180812,1.4064302444458008,153.3391632072761
+low_light,Optimized SIFT + RANSAC,0.8,3.0,,,,1442,1216,0.8432732316227461,0.5939409136772156,762.8890064655487
+motion_blur,Optimized SIFT + RANSAC,0.8,5.0,,,,464,274,0.5905172413793104,2.045759916305542,89.96112875907751
+low_light,CLAHE + Multi-scale SIFT + RANSAC,,,1.5,3.0,8x8,1614,1493,0.9250309789343246,0.6205406983693441,921.297441960155
+motion_blur,CLAHE + Multi-scale SIFT + RANSAC,,,1.0,3.0,8x8,347,168,0.484149855907781,1.4869520664215088,67.55256857110892
+defocus_blur,CLAHE + Multi-scale SIFT + RANSAC,,,1.0,3.0,8x8,418,271,0.6483253588516746,1.2765530347824097,119.03961641108961

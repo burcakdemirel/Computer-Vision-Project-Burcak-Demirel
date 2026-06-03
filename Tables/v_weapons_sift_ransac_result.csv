@@ -1,0 +1,2 @@
+sequence,image_pair,method,ratio_threshold,ransac_threshold_px,keypoints_img1,keypoints_img2,good_matches,ransac_inliers,mean_reprojection_error_px,joint_confidence_score
+v_weapons,1-2,SIFT + RANSAC,0.75,3.0,4357,4118,2073,1961,0.6751566529273987,1170.6367858630292
