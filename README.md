@@ -115,12 +115,9 @@ The project was developed with OpenCV, NumPy, Pandas, Matplotlib, PyTorch and th
 
 ```text
 .
-├── robust-local-feature-matching.ipynb
+├── computer-vision-project-round-1-burcak-demirel.ipynb
 ├── README.md
-├── requirements.txt
 ├── .gitignore
-├── GITHUB_UPLOAD_CHECKLIST.md
-└── paper_github_citation.txt
 ```
 
 ## Notes for evaluation
