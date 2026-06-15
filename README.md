@@ -52,7 +52,7 @@ The notebook includes the following experimental stages:
 ## Main notebook
 
 ```text
-computer-vision-project-round-1-burcak-demirel.ipynb
+computer-vision-project-burcak-demirel.ipynb
 ```
 
 This notebook contains the full experimental workflow. It includes image loading, corruption generation, feature matching, homography estimation, result tables and result plots.
@@ -128,7 +128,7 @@ The easiest way to reproduce the project is to run the notebook on Kaggle.
 
 1. Create a Kaggle notebook.
 2. Add the HPatches sequence dataset as input.
-3. Upload or open `computer-vision-project-round-1-burcak-demirel.ipynb`.
+3. Upload or open `computer-vision-project-burcak-demirel.ipynb`.
 4. Check the dataset path in the dataset section.
 5. Run the notebook from top to bottom.
 
@@ -144,7 +144,7 @@ The project was developed with OpenCV, NumPy, Pandas, Matplotlib, PyTorch and th
 
 ```text
 .
-├── computer-vision-project-round-1-burcak-demirel.ipynb
+├── computer-vision-project-burcak-demirel.ipynb
 ├── README.md
 ├── .gitignore
 ```
