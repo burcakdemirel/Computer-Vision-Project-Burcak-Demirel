@@ -1,0 +1,9 @@
+# Core
+numpy>=1.23
+opencv-python>=4.8        # SIFT + CLAHE + RANSAC (cv2)
+pandas>=1.5               # result tables / CSV export
+matplotlib>=3.6           # figures (FFT, sweeps, comparisons)
+
+# Learned matcher (SuperPoint + SuperGlue)
+torch>=2.0
+torchvision>=0.15
