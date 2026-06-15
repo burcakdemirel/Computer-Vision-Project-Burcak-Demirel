@@ -92,6 +92,35 @@ synthetic_to_real_transfer_summary.csv
 ```
 
 If the notebook is run again, these files will be regenerated automatically.
+## Requirements
+
+Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+The SuperPoint + SuperGlue baseline additionally requires the pretrained
+weights from the official repository
+(https://github.com/magicleap/SuperGluePretrainedNetwork); clone it or place
+the `weights/` folder where the notebook expects it. A CUDA-capable GPU is
+recommended for the SuperPoint + SuperGlue experiments.
+
+## Dataset and paths
+
+The experiments use the HPatches sequences dataset
+(https://github.com/hpatches/hpatches-dataset).
+
+The notebook was developed in a Kaggle environment, so the dataset path is set to
+the Kaggle input directory, e.g.:
+
+```python
+HPATCHES_ROOT = "/kaggle/input/<hpatches-dataset-name>/hpatches-sequences"
+```
+
+**To run outside Kaggle**, change `HPATCHES_ROOT` to your local HPatches path.
+This is the only path that needs editing; all result tables and figures are
+written to the project output directory.
 
 ## How to run
 
