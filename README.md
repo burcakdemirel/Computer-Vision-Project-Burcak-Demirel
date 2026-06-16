@@ -71,7 +71,7 @@ The easiest way to reproduce the project is to run the notebook on Kaggle:
 
 1. Create a Kaggle notebook.
 2. Add the HPatches sequences dataset as input.
-3. Open `computer-vision-project-burcak-demirel.ipynb`.
+3. Open `computer-vision-project-code-burcak-demirel.ipynb`.
 4. Check the dataset path in the dataset section.
 5. Enable internet access (for cloning the SuperGlue repository).
 6. Run the notebook from top to bottom.
@@ -97,7 +97,7 @@ Re-running the notebook regenerates these files automatically.
 ## Repository structure
 
     .
-    ├── computer-vision-project-burcak-demirel.ipynb
+    ├── computer-vision-project-code-burcak-demirel.ipynb
     ├── README.md
     ├── requirements.txt
     ├── .gitignore
