@@ -1,30 +1,26 @@
 # Computer-Vision-Project-Burcak-Demirel
-Description: Feature matching robustness analysis using HPatches dataset
+
+**Description:** Feature matching robustness analysis using HPatches dataset
+
 # Robust Local Feature Matching for Homography Estimation under Photometric and Blur Corruptions
 
 This repository contains the implementation part of a final term project for computer vision. The project studies how local feature matching methods behave when image pairs are affected by low-light degradation, motion blur and defocus blur.
 
-The main purpose is simple: a matching method should not only work on clean images. It should also remain reliable when the visual quality changes. For this reason, the notebook compares a classical SIFT-based pipeline with preprocessing, parameter tuning, multi-scale matching and a modern SuperPoint + SuperGlue baseline.
+A matching method should not only work on clean images; it should also stay reliable when visual quality changes. The notebook therefore compares a classical SIFT-based pipeline (with preprocessing, parameter tuning and multi-scale matching) against a modern SuperPoint + SuperGlue baseline.
 
 ## Project motivation
 
-Homography estimation is widely used in image alignment, panorama creation, camera pose estimation and visual localization. In controlled examples, local feature matching can look very stable. In real conditions, the same pipeline can fail because of poor illumination or blur. This project focuses on that practical gap.
-
-The study uses controlled corruptions to observe how the number of matches, RANSAC inliers, reprojection error and a joint confidence score change under different image degradation types.
+Homography estimation is widely used in image alignment, panorama creation, camera pose estimation and visual localization. In controlled examples local feature matching can look very stable, but in real conditions the same pipeline can fail because of poor illumination or blur. This project focuses on that practical gap, using controlled corruptions to observe how the number of matches, RANSAC inliers, reprojection error and a joint confidence score change under different degradation types.
 
 ## Dataset
 
-The experiments use the HPatches sequence dataset.
+The experiments use the HPatches sequences dataset. The dataset is **not** included in this repository because it is large and should be accessed from its original source or from the Kaggle input environment used in the notebook.
 
-The dataset is not included in this repository because it is large and should be accessed from its original source or from the Kaggle input environment used in the notebook.
+In the Kaggle environment, the dataset path is:
 
-In the Kaggle version, the dataset path is:
+    /kaggle/input/datasets/javidtheimmortal/hpatches-sequence-release/hpatches-sequences-release
 
-```text
-/kaggle/input/datasets/javidtheimmortal/hpatches-sequence-release/hpatches-sequences-release
-```
-
-When running the notebook outside Kaggle, this path should be updated according to the local dataset location.
+When running the notebook outside Kaggle, update `HPATCHES_ROOT` to your local HPatches path. This is the only path that needs editing; all result tables and figures are written to the project output directory.
 
 ## Methods
 
@@ -33,128 +29,81 @@ The notebook includes the following experimental stages:
 - SIFT feature detection and description
 - Lowe ratio test for descriptor matching
 - RANSAC-based homography estimation
-- Mean reprojection error calculation
-- Joint confidence score calculation
-- Synthetic low-light corruption
-- Synthetic motion blur corruption
-- Synthetic defocus blur corruption
-- Frequency-based analysis of motion blur and defocus blur
-- CLAHE preprocessing
-- CLAHE parameter sweep
-- Multi-scale SIFT matching
-- Optimized SIFT baseline
-- SuperPoint + SuperGlue baseline
-- Multi-scale SuperPoint + SuperGlue analysis
+- Mean reprojection error and joint confidence score calculation
+- Synthetic low-light, motion blur and defocus blur corruptions
+- Frequency-based analysis of motion blur vs defocus blur
+- CLAHE preprocessing and CLAHE parameter sweep
+- Multi-scale SIFT matching and optimized SIFT baseline
+- SuperPoint + SuperGlue baseline (and multi-scale SuperPoint analysis)
 - Detector repeatability analysis
-- Mini multi-sequence HPatches validation
+- Multi-sequence HPatches validation (mean ± std, all methods)
 - Synthetic-to-real transfer analysis
 
 ## Main notebook
 
-```text
-computer-vision-project-burcak-demirel.ipynb
-```
+    computer-vision-project-burcak-demirel.ipynb
 
-This notebook contains the full experimental workflow. It includes image loading, corruption generation, feature matching, homography estimation, result tables and result plots.
+This notebook contains the full experimental workflow: image loading, corruption generation, feature matching, homography estimation, result tables and result plots.
 
 ## Key results
 
-The final comparison shows that the best method depends on the corruption type.
+The final comparison shows that the best method depends on the corruption type. The single-pair (v_weapons) results are summarised below:
 
-| Corruption type | Best method | RANSAC inliers | Mean reprojection error | Joint confidence score |
-|---|---:|---:|---:|---:|
-| Low light | CLAHE + Multi-scale SIFT + RANSAC | 1495 | 0.62 px | 924.15 |
-| Motion blur | Optimized SIFT + RANSAC | 274 | 2.05 px | 89.96 |
-| Defocus blur | SuperPoint + SuperGlue + RANSAC | 530 | 1.49 px | 212.96 |
+| Corruption type | Best method (single pair)         | RANSAC inliers | Mean reprojection error | Joint confidence score |
+| --------------- | --------------------------------- | -------------- | ----------------------- | ---------------------- |
+| Low light       | CLAHE + Multi-scale SIFT + RANSAC | 1495           | 0.62 px                 | 924.15                 |
+| Motion blur     | Optimized SIFT + RANSAC           | 274            | 2.05 px                 | 89.96                  |
+| Defocus blur    | SuperPoint + SuperGlue + RANSAC   | 530            | 1.49 px                 | 212.96                 |
 
-The low-light case benefited strongly from CLAHE and multi-scale SIFT. Motion blur remained the most difficult condition. Defocus blur was handled better by SuperPoint + SuperGlue than by the SIFT-based alternatives in the final comparison.
+> **Note:** these are single-pair results. A 20-sequence validation in the report (all three methods, with mean ± std and paired significance tests) shows that CLAHE + Multi-scale SIFT is strongest under low-light, while SuperPoint + SuperGlue is the most robust under **both** motion blur and defocus blur. See the report for the full multi-sequence comparison.
 
-## Output files generated by the notebook
-
-The notebook saves result tables and figures under:
-
-```text
-/kaggle/working/project_outputs
-```
-
-Important generated files include:
-
-```text
-baseline_sift_ransac_result.csv
-v_weapons_sift_ransac_result.csv
-corruption_results_sift_ransac_all.csv
-clahe_parameter_sweep_results.csv
-final_methods_comparison.csv
-final_extended_methods_comparison.csv
-best_final_extended_methods_by_condition.csv
-synthetic_to_real_transfer_results.csv
-synthetic_to_real_transfer_summary.csv
-```
-
-If the notebook is run again, these files will be regenerated automatically.
 ## Requirements
 
 Install dependencies with:
 
-```bash
-pip install -r requirements.txt
-```
+    pip install -r requirements.txt
 
-The SuperPoint + SuperGlue baseline additionally requires the pretrained
-weights from the official repository
-(https://github.com/magicleap/SuperGluePretrainedNetwork); clone it or place
-the `weights/` folder where the notebook expects it. A CUDA-capable GPU is
-recommended for the SuperPoint + SuperGlue experiments.
-
-## Dataset and paths
-
-The experiments use the HPatches sequences dataset
-(https://github.com/hpatches/hpatches-dataset).
-
-The notebook was developed in a Kaggle environment, so the dataset path is set to
-the Kaggle input directory, e.g.:
-
-```python
-HPATCHES_ROOT = "/kaggle/input/<hpatches-dataset-name>/hpatches-sequences"
-```
-
-**To run outside Kaggle**, change `HPATCHES_ROOT` to your local HPatches path.
-This is the only path that needs editing; all result tables and figures are
-written to the project output directory.
+The main dependencies are OpenCV, NumPy, pandas, Matplotlib and PyTorch. The SuperPoint + SuperGlue baseline additionally requires the pretrained weights from the official repository (https://github.com/magicleap/SuperGluePretrainedNetwork); the notebook clones this repository during execution, so internet access should be enabled in the Kaggle notebook settings. A CUDA-capable GPU is recommended for the SuperPoint + SuperGlue experiments.
 
 ## How to run
 
-The easiest way to reproduce the project is to run the notebook on Kaggle.
+The easiest way to reproduce the project is to run the notebook on Kaggle:
 
 1. Create a Kaggle notebook.
-2. Add the HPatches sequence dataset as input.
-3. Upload or open `computer-vision-project-burcak-demirel.ipynb`.
+2. Add the HPatches sequences dataset as input.
+3. Open `computer-vision-project-burcak-demirel.ipynb`.
 4. Check the dataset path in the dataset section.
-5. Run the notebook from top to bottom.
+5. Enable internet access (for cloning the SuperGlue repository).
+6. Run the notebook from top to bottom.
 
-The notebook also clones the official SuperGlue pretrained network repository during execution. Internet access should be enabled in the Kaggle notebook settings for that part.
+If run locally, dataset paths and environment-specific output paths may need to be changed.
 
-## Requirements
+## Output files generated by the notebook
 
-The main Python dependencies are listed in `requirements.txt`.
+The notebook saves result tables and figures under `/kaggle/working/project_outputs`. Important generated files include:
 
-The project was developed with OpenCV, NumPy, Pandas, Matplotlib, PyTorch and the official SuperGlue pretrained implementation.
+    baseline_sift_ransac_result.csv
+    v_weapons_sift_ransac_result.csv
+    corruption_results_sift_ransac_all.csv
+    clahe_parameter_sweep_results.csv
+    final_methods_comparison.csv
+    final_extended_methods_comparison.csv
+    best_final_extended_methods_by_condition.csv
+    synthetic_to_real_transfer_results.csv
+    synthetic_to_real_transfer_summary.csv
+
+Re-running the notebook regenerates these files automatically.
 
 ## Repository structure
 
-```text
-.
-├── computer-vision-project-burcak-demirel.ipynb
-├── README.md
-├── .gitignore
-```
-
-## Notes for evaluation
-
-This repository is intended to support the final report. The report should cite the public GitHub repository URL as required in the project submission rules.
-
-The notebook was originally developed in Kaggle. If it is run locally, dataset paths and environment-specific output paths may need to be changed.
+    .
+    ├── computer-vision-project-burcak-demirel.ipynb
+    ├── README.md
+    ├── requirements.txt
+    ├── .gitignore
+    ├── Figures/
+    └── Tables/
 
 ## AI tool usage statement
 
-AI tools were used only as supportive tools during the preparation of this project. They supported code organization, debugging, report structure planning, language editing and result interpretation checks. The experimental design, dataset selection, parameter choices, implementation decisions, result verification and final conclusions were reviewed and finalized by the author.
+AI tools were used only as supportive tools during the preparation of this project. They supported code organization, debugging, report structure planning, language editing and result-interpretation checks. The experimental design, dataset selection, parameter choices, implementation decisions, result verification and final conclusions were reviewed and finalized by the author.
